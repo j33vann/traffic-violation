@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+
+</head>
+<body>
+    <div class="container">
+        <h1>Users List</h1>
+        <span style="height: 5px; background-color: beige; display: block; width: 250px; margin: 0 auto;"></span>
+        <div class="row" style="margin-top: 80px; justify-content: center;">
+            <% viol.forEach((v)=>{ %>
+            <div class="col-lg-5">
+                <div class="card">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <img src="/images/<%= v.vehicle %>.jpg" alt="">
+                        </div>
+                        <div class="col-lg-8">
+                            <p>Name: <b><%= v.user.name %></b></p>
+                            <p>DOB: <b><%= v.user.dob %></b></p>
+                            <p>Phone: <b><%= v.user.phone %></b></p>
+                            <p>Vehicle No: <b><%= v.vehicle %></b></p>
+                        </div>
+                    </div>
+                    <div style="margin-top: 15px;">
+                        <p>Offence: <i style="font-weight: 300;"><%= v.violation %></i></p>
+                        <p>Time: <i style="font-weight: 300;"><%= v.date %> <%= v.time %></i></p>
+                    </div>
+                </div>
+            </div>
+            <% }) %> 
+        </div>
+    </div>
+</body>
+</html>
+
+<style>
+    body {
+        padding-top: 100px;
+        background: linear-gradient( rgba(0, 0, 0, 0), rgb(22, 22, 22) ), url("/images/bg.jpg");
+        background-position: center;
+        background-size: cover;
+        background-attachment: fixed;
+        color: white;
+    }
+    h1 {
+        text-align: center;
+        font-weight: 700;
+        font-family: 'Poppins';
+        padding-bottom: 5px;
+    }
+    p {
+        font-family: 'Poppins';
+    }
+    img {
+        width: -webkit-fill-available;
+    }
+    .container {
+        padding: 40px;
+        backdrop-filter: blur(10px);
+    }
+    .card {
+        padding: 24px;
+        background-color: black;
+        border-radius: 5px;
+        box-shadow: 0 0 10px 5px gray;
+    }
+    .card:hover {
+        box-shadow: 0 0 10px 5px darkblue;
+        transition: 0.4s;
+    }
+    .col-lg-5 {
+        margin-bottom: 25px;
+    }
+</style>
